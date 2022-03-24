@@ -9,9 +9,12 @@ master.geometry('800x600')
 master.minsize(800, 600)
 master.iconbitmap("logo.ico")
 
+global Delta
+Delta = 0
+
 #Fonction click pour | + Δ + ▭ + |   
 def myClick():
-    Delta=0
+    global Delta
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     canvas.create_rectangle(Delta,25,Delta+25,75,fill="royalblue", outline="black",width=2) # ▭ reservoir (x1, y1, x2, y2)
@@ -20,10 +23,11 @@ def myClick():
     Delta=Delta+25
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
+    
 
 #Fonction click pour | + Δ + |
 def myCentrale():
-    Delta=0
+    global Delta
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     canvas.create_polygon(Delta,25,Delta,75,Delta+50,50,fill="royalblue",outline="black", width=2)# Δ Centrale (x1, y1, x2, y2, x3, y3)
@@ -33,7 +37,7 @@ def myCentrale():
 
 #Fonction click pour | + ▭ + |
 def myReservoir():
-    Delta=0
+    global Delta
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     canvas.create_rectangle(Delta,25,Delta+50,75,fill="royalblue", outline="black",width=2) # ▭ reservoir (x1, y1, x2, y2)
@@ -43,8 +47,10 @@ def myReservoir():
     
 #Fonction click pour clear dessin (dessin d'un grand carré de la même couleur que le fond)
 def myClear():
-    Delta=0
+    global Delta
     canvas.create_rectangle(Delta+4,Delta+4,Delta+100,100,fill="grey94",outline="grey94")
+    Delta=Delta-100
+    
     
 
 #Creation du bouton pour Δ + ▭
