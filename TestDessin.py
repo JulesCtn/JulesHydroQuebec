@@ -1,6 +1,4 @@
 from tkinter import *
-from turtle import color, width
-from PIL import ImageTk,Image
 
 master = Tk()
 #Settings of the main window
@@ -8,6 +6,8 @@ master.title("System Production")
 master.geometry('800x600')
 master.minsize(800, 600)
 master.iconbitmap("logo.ico")
+master.tk.call("source", "azure.tcl")
+master.tk.call("set_theme", "light")
 
 global Delta
 Delta = 0
@@ -44,15 +44,12 @@ def myReservoir():
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     
-#Fonction click pour clear dessin (dessin d'un grand carré de la même couleur que le fond (grey94))
+#Fonction click pour clear dessin
+### MARCHE PAS ###
 def myClear():
     global Delta
     Delta=Delta-100
     canvas.create_rectangle(Delta,Delta,Delta+100,100,fill="grey94",outline="grey94")
-    canvas.create_line(Delta,Delta,Delta,100,fill="black",width=2)
-    canvas.create_line(Delta+5,Delta,Delta+5,100,fill="black",width=2)
-    canvas.create_line(Delta+10,Delta,Delta+10,100,fill="black",width=2)
-    canvas.create_line(Delta+15,Delta,Delta+15,100,fill="black",width=2)
 
 #Creation du bouton pour Δ + ▭
 Buton1 = Button(master, text="Add Centrale + Reservoir", command=myCentraleReservoir)
