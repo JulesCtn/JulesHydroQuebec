@@ -1,5 +1,5 @@
 from tkinter import *
-from turtle import color
+from turtle import color, width
 from PIL import ImageTk,Image
 
 master = Tk()
@@ -13,7 +13,7 @@ global Delta
 Delta = 0
 
 #Fonction click pour | + Δ + ▭ + |   
-def myClick():
+def myCentraleReservoir():
     global Delta
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
@@ -24,7 +24,6 @@ def myClick():
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     
-
 #Fonction click pour | + Δ + |
 def myCentrale():
     global Delta
@@ -45,16 +44,18 @@ def myReservoir():
     canvas.create_line(Delta,50,Delta+25,50,fill="black",width=2) # |
     Delta=Delta+25
     
-#Fonction click pour clear dessin (dessin d'un grand carré de la même couleur que le fond)
+#Fonction click pour clear dessin (dessin d'un grand carré de la même couleur que le fond (grey94))
 def myClear():
     global Delta
-    canvas.create_rectangle(Delta+4,Delta+4,Delta+100,100,fill="grey94",outline="grey94")
     Delta=Delta-100
-    
-    
+    canvas.create_rectangle(Delta,Delta,Delta+100,100,fill="grey94",outline="grey94")
+    canvas.create_line(Delta,Delta,Delta,100,fill="black",width=2)
+    canvas.create_line(Delta+5,Delta,Delta+5,100,fill="black",width=2)
+    canvas.create_line(Delta+10,Delta,Delta+10,100,fill="black",width=2)
+    canvas.create_line(Delta+15,Delta,Delta+15,100,fill="black",width=2)
 
 #Creation du bouton pour Δ + ▭
-Buton1 = Button(master, text="Add Centrale + Reservoir", command=myClick)
+Buton1 = Button(master, text="Add Centrale + Reservoir", command=myCentraleReservoir)
 Buton2 = Button(master, text="Add Centrale", command=myCentrale)
 Buton3 = Button(master, text="Add Reservoir", command=myReservoir)
 Buton4 = Button(master, text="Clear", command=myClear)
