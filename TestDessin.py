@@ -58,7 +58,7 @@ Buton3 = Button(master, text="Add Reservoir", command=myReservoir)
 Buton4 = Button(master, text="Clear", command=myClear)
 
 #Canvas creation des dessins
-canvas = Canvas(master, height=100, width=500)
+canvas = Canvas(master, height=100, width=2000)
 canvas.create_line(3,3,3,100,fill="black",width=2)
 #canvas.create_rectangle(0, 0, 600, 600, fill="grey") # le fond pour mieu comprendre le canvas (x1, y1, x2, y2)
 
