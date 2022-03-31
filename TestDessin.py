@@ -49,7 +49,7 @@ def myReservoir():
 def myClear():
     global Delta
     Delta=Delta-100
-    canvas.create_rectangle(Delta,Delta,Delta+100,100,fill="grey94",outline="grey94")
+    canvas.create_rectangle(Delta,0,Delta+100,100,fill="grey94",outline="grey94")
 
 #Creation du bouton pour Δ + ▭
 Buton1 = Button(master, text="Add Centrale + Reservoir", command=myCentraleReservoir)
