@@ -6,9 +6,10 @@ master.title("System Production")
 master.geometry('800x600')
 master.minsize(800, 600)
 master.iconbitmap("logo.ico")
+#Theme azure
 master.tk.call("source", "azure.tcl")
 master.tk.call("set_theme", "light")
-
+#Global variable
 global Delta
 Delta = 0
 
@@ -59,7 +60,6 @@ Buton4 = Button(master, text="Clear", command=myClear)
 #Canvas creation des dessins
 canvas = Canvas(master, height=100, width=2000)
 canvas.create_line(3,3,3,100,fill="black",width=2)
-#canvas.create_rectangle(0, 0, 600, 600, fill="grey") # le fond pour mieu comprendre le canvas (x1, y1, x2, y2)
 
 #Showing it onto the screen
 Buton1.grid(row=1, column=1)
