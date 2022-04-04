@@ -17,7 +17,8 @@ Download the [latest release](https://github.com/JulesCtn/JulesHydroQuebec/relea
 
 ### Manual installation (MacOS & Windows)
 
-1. You need to 
+1. You need to unpack the folder and start GUY.py
+2. Export files will be saved in the same folder of GUY.py
 
 
 ## Known bugs
