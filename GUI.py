@@ -51,7 +51,7 @@ class Window(Frame):
         self.current_data = self.shape_data[index]
 
         shape = self.shape_type[self.current_shape]
-        if shape[:8] == "Triangle" and "+" not in shape:
+        if shape[:8] == "Centrale" and "+" not in shape:
             self.info_1_entry.configure(state = "normal")
             self.info_2_entry.configure(state = "normal")
             self.info_3_entry.configure(state = "normal")
@@ -98,7 +98,7 @@ class Window(Frame):
         self.current_data = self.shape_data[reference]
 
         shape = self.shape_type[self.current_shape]
-        if shape[:8] == "Triangle" and "+" not in shape:
+        if shape[:8] == "Centrale" and "+" not in shape:
             self.info_1_entry.configure(state = "normal")
             self.info_2_entry.configure(state = "normal")
             self.info_3_entry.configure(state = "normal")
@@ -145,13 +145,13 @@ class Window(Frame):
             self.canvas.delete(shape)
 
             try:
-                if "Triangle + Square" in self.shape_type[shape]:
+                if "Centrale + Reservoir" in self.shape_type[shape]:
                     self.combined_count -= 1
                     self.shape_data.pop(shape)
                 elif "Square" in self.shape_type[shape]:
                     self.square_count -= 1
                     self.shape_data.pop(shape)
-                elif "Triangle" in self.shape_type[shape]:
+                elif "Centrale" in self.shape_type[shape]:
                     self.triangle_count -= 1
                     self.shape_data.pop(shape)
                 
@@ -297,8 +297,8 @@ class Window(Frame):
         self.shape_list.append([line, triangle])
 
         self.triangle_count += 1
-        self.shape_type[triangle] = "Triangle %s"%self.triangle_count
-        self.shape_data[triangle] = ["Triangle %s"%self.triangle_count]
+        self.shape_type[triangle] = "Centrale %s"%self.triangle_count
+        self.shape_data[triangle] = ["Centrale %s"%self.triangle_count]
 
         self.canvas.tag_bind("single_shape","<Button-1>",self.single_shape_clicked)
 
@@ -365,8 +365,8 @@ class Window(Frame):
         self.joined_shapes[triangle] = square
 
         self.combined_count += 1
-        self.shape_type[square] = "Triangle + Square %s"%self.combined_count
-        self.shape_data[square] = ["Triangle + Square %s"%self.combined_count]
+        self.shape_type[square] = "Centrale + Reservoir %s"%self.combined_count
+        self.shape_data[square] = ["Centrale + Reservoir %s"%self.combined_count]
 
         self.canvas.tag_bind("single_shape","<Button-1>",self.single_shape_clicked)
         self.canvas.tag_bind("joined_shape","<Button-1>",self.joined_shape_clicked)
@@ -493,8 +493,18 @@ class Window(Frame):
         help_window.geometry("640x400")
         help_window.title("Help")
 
-        help_text = Label(help_window, text = "Hello, this is the help screen")
-        help_text.pack()
+        help_text1 = Label(help_window, text = "Hello, this is the help screen!\n\n")
+        help_text2 = Label(help_window, text = "You may add as many structures as you wish by clicking on the three add buttons.\n")
+        help_text3 = Label(help_window, text = "You may change the settings of the structures at any time by clinking on their drawings.\n")
+        help_text4 = Label(help_window, text = "Once you have entered all your settings, you may click on Save Information in order to export the data.\n")
+        help_text5 = Label(help_window, text = "You may click on the menu File then Export to export your settings in a .txt file.\n\n")
+        help_text6 = Label(help_window, text = "Enjoy!")
+        help_text1.pack()
+        help_text2.pack()
+        help_text3.pack()
+        help_text4.pack()
+        help_text5.pack()
+        help_text6.pack()
 
     def toggle_turbine_state(self):
         text = self.info_6_button["text"]
@@ -555,13 +565,13 @@ class Window(Frame):
 
         ## Buttons creation ##
 
-        self.add_triangle_button = ttk.Button(self.buttons_frame, text = "Add a triangle", command=self.draw_triangle)
+        self.add_triangle_button = ttk.Button(self.buttons_frame, text = "Add a centrale", command=self.draw_triangle)
         self.add_triangle_button.grid(columnspan=2, pady = 5, sticky="ew", padx = 30)
 
-        self.add_square_button = ttk.Button(self.buttons_frame, text = "Add a square", command=self.draw_square)
+        self.add_square_button = ttk.Button(self.buttons_frame, text = "Add a reservoir", command=self.draw_square)
         self.add_square_button.grid(columnspan=2, sticky="ew", padx = 30)
 
-        self.add_triangle_square_button = ttk.Button(self.buttons_frame, text = "Add a triangle + square", command=self.draw_triangle_square)
+        self.add_triangle_square_button = ttk.Button(self.buttons_frame, text = "Add a centrale & reservoir", command=self.draw_triangle_square)
         self.add_triangle_square_button.grid(columnspan=2, pady = 5, sticky="ew", padx = 30)
 
         self.clear_last_button = ttk.Button(self.buttons_frame, text = "Clear last", command = self.clear_last)
@@ -578,7 +588,7 @@ class Window(Frame):
         self.info_1_entry = ttk.Entry(self.information_frame)
         self.info_1_entry.grid(sticky="ew", pady = 5, padx = 30, row = 0, column = 1)
 
-        self.info_2_label = Label(self.information_frame, text = "Quantity in", anchor = W)
+        self.info_2_label = Label(self.information_frame, text = "Inflow", anchor = W)
         self.info_2_label.grid(sticky="ew", pady = 5, padx = 30, row = 1, column = 0)        
 
         self.info_2_entry = ttk.Entry(self.information_frame)
@@ -590,7 +600,7 @@ class Window(Frame):
         self.info_3_entry = ttk.Entry(self.information_frame)
         self.info_3_entry.grid(sticky="ew", pady = 5, padx = 30, row = 2, column = 1)
 
-        self.info_4_label = Label(self.information_frame, text = "Quantity out", anchor = W)
+        self.info_4_label = Label(self.information_frame, text = "Outflow", anchor = W)
         self.info_4_label.grid(sticky="ew", pady = 5, padx = 30, row = 3, column = 0)
 
         self.info_4_entry = ttk.Entry(self.information_frame)
@@ -608,7 +618,7 @@ class Window(Frame):
         self.info_6_button = ttk.Button(self.information_frame, text = " << OFF >> ", command = self.toggle_turbine_state)
         self.info_6_button.grid(sticky="ew", padx = 30, row = 5, column = 1)
 
-        self.info_7_label = Label(self.information_frame, text = "Quantity per turbine", anchor = W)
+        self.info_7_label = Label(self.information_frame, text = "Flow rate per turbine", anchor = W)
         self.info_7_label.grid(sticky="ew", pady = 5, padx = 30, row = 6, column = 0)
 
         self.info_7_entry = ttk.Entry(self.information_frame)
