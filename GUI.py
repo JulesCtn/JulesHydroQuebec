@@ -659,6 +659,8 @@ def main():
 
     root = Tk()
     ex = Window()
+    root.title("UQAC - Hydroelectric Generation System")
+    root.iconbitmap("images/logo.ico")
     root.geometry("1100x650+150+30")
     root.mainloop()
 
