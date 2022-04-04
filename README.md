@@ -32,7 +32,7 @@ None bugs have been reported yet.
 
 ### New bugs
 
-If you've found a new bug, please report it as a new issue with the templates provided.
+If you've found a new bug, please report it as a new issue.
 
 Thanks!
 
