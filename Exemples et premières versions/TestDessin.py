@@ -5,7 +5,7 @@ master = Tk()
 master.title("System Production")
 master.geometry('800x600')
 master.minsize(800, 600)
-master.iconbitmap("logo.ico")
+master.iconbitmap("images/logo.ico")
 #Theme azure
 master.tk.call("source", "azure.tcl")
 master.tk.call("set_theme", "light")

@@ -8,7 +8,7 @@ window = Tk()
 #Settings of the main window
 window.title("Data Emplacement n")
 window.minsize(400, 600)
-window.iconbitmap("logo.ico")
+window.iconbitmap("images/logo.ico")
 window.tk.call("source", "azure.tcl")
 window.tk.call("set_theme", "light")
 
