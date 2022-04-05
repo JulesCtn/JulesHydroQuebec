@@ -9,7 +9,7 @@
 The aim of this project is to simulate a hydroelectric production system, the collection of data to the operation of the turbines.
 
 
-Dynamic programming uses the total throughput calculated by short-term optimization to determine the turbinated unit start by each of the turbines. A user interface will allow to visualize the turbines in operation according to the result of the algorithm.
+Dynamic programming uses the total throughput calculated by short-term optimisation to determine the turbinated unit start by each of the turbines. A user interface will allow us to visualize the turbines in operation based on the result of the algorithm.
 
 ## Requirement
 
@@ -28,7 +28,7 @@ Download the [latest release](https://github.com/JulesCtn/JulesHydroQuebec/relea
 
 ## Known bugs
 
-None bugs have been reported yet.
+No bugs have been reported yet.
 
 ### New bugs
 
