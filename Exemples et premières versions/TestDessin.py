@@ -3,11 +3,11 @@ from tkinter import *
 master = Tk()
 #Settings of the main window
 master.title("System Production")
+master.iconbitmap("..\images\logo.ico")
 master.geometry('800x600')
 master.minsize(800, 600)
-master.iconbitmap("images/logo.ico")
 #Theme azure
-master.tk.call("source", "azure.tcl")
+master.tk.call("source", "../azure.tcl")
 master.tk.call("set_theme", "light")
 #Global variable
 global Delta
