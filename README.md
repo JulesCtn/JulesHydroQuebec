@@ -13,7 +13,7 @@ Dynamic programming uses the total throughput calculated by short-term optimisat
 
 ## Requirement
 
-- Python 3
+-[Python 3](https://www.python.org/downloads/)
 
 ## Installation
 
