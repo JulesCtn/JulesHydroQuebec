@@ -3,7 +3,7 @@ from tkinter import *
 master = Tk()
 #Settings of the main window
 master.title("System Production")
-master.iconbitmap("..\images\logo.ico")
+master.iconbitmap("../images/logo.ico")
 master.geometry('800x600')
 master.minsize(800, 600)
 #Theme azure
