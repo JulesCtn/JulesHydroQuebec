@@ -62,7 +62,7 @@ class Window(Frame):
             self.info_8_entry.configure(state = "disabled")
             self.info_9_entry.configure(state = "disabled")
             self.info_10_entry.configure(state = "disabled")
-        elif shape[:6] == "Square":
+        elif shape[:6] == "Réservoir":
             self.info_1_entry.configure(state = "normal")
             self.info_2_entry.configure(state = "disabled")
             self.info_3_entry.configure(state = "disabled")
@@ -242,8 +242,8 @@ class Window(Frame):
         self.shape_list.append([line, square])
 
         self.square_count += 1
-        self.shape_type[square] = "Square %s"%self.square_count
-        self.shape_data[square] = ["Square %s"%self.square_count]
+        self.shape_type[square] = "Tank %s"%self.square_count
+        self.shape_data[square] = ["Tank %s"%self.square_count]
 
         self.canvas.tag_bind("single_shape","<Button-1>",self.single_shape_clicked)
 
@@ -297,8 +297,8 @@ class Window(Frame):
         self.shape_list.append([line, triangle])
 
         self.triangle_count += 1
-        self.shape_type[triangle] = "Centrale %s"%self.triangle_count
-        self.shape_data[triangle] = ["Centrale %s"%self.triangle_count]
+        self.shape_type[triangle] = "Power plant %s"%self.triangle_count
+        self.shape_data[triangle] = ["Power plant %s"%self.triangle_count]
 
         self.canvas.tag_bind("single_shape","<Button-1>",self.single_shape_clicked)
 
@@ -365,8 +365,8 @@ class Window(Frame):
         self.joined_shapes[triangle] = square
 
         self.combined_count += 1
-        self.shape_type[square] = "Centrale + Reservoir %s"%self.combined_count
-        self.shape_data[square] = ["Centrale + Reservoir %s"%self.combined_count]
+        self.shape_type[square] = "Power plant + Tank %s"%self.combined_count
+        self.shape_data[square] = ["Power plant + Tank %s"%self.combined_count]
 
         self.canvas.tag_bind("single_shape","<Button-1>",self.single_shape_clicked)
         self.canvas.tag_bind("joined_shape","<Button-1>",self.joined_shape_clicked)
@@ -492,6 +492,7 @@ class Window(Frame):
         help_window = Toplevel(root)
         help_window.geometry("640x400")
         help_window.title("Help")
+        help_window.iconbitmap("images/help.ico")
 
         help_text1 = Label(help_window, text = "Hello, this is the help screen!\n\n")
         help_text2 = Label(help_window, text = "You may add as many structures as you wish by clicking on the three add buttons.\n")
@@ -560,18 +561,18 @@ class Window(Frame):
         self.information_frame = LabelFrame(self, text="Form Selected")
         self.information_frame.grid(row = 1, column = 0,sticky="ewns", padx = 10, pady = 20)
 
-        self.canvas_frame = Frame(self, bg = "red")
+        self.canvas_frame = Frame(self, bg = "white")
         self.canvas_frame.grid(row = 0, column = 1, rowspan=2, sticky="ewns", padx = 20, pady = 20)
 
         ## Buttons creation ##
 
-        self.add_triangle_button = ttk.Button(self.buttons_frame, text = "Add a centrale", command=self.draw_triangle)
+        self.add_triangle_button = ttk.Button(self.buttons_frame, text = "Add a Power plant", command=self.draw_triangle)
         self.add_triangle_button.grid(columnspan=2, pady = 5, sticky="ew", padx = 30)
 
-        self.add_square_button = ttk.Button(self.buttons_frame, text = "Add a reservoir", command=self.draw_square)
+        self.add_square_button = ttk.Button(self.buttons_frame, text = "Add a Tank", command=self.draw_square)
         self.add_square_button.grid(columnspan=2, sticky="ew", padx = 30)
 
-        self.add_triangle_square_button = ttk.Button(self.buttons_frame, text = "Add a centrale & reservoir", command=self.draw_triangle_square)
+        self.add_triangle_square_button = ttk.Button(self.buttons_frame, text = "Add a Power plant + Tank", command=self.draw_triangle_square)
         self.add_triangle_square_button.grid(columnspan=2, pady = 5, sticky="ew", padx = 30)
 
         self.clear_last_button = ttk.Button(self.buttons_frame, text = "Clear last", command = self.clear_last)
